@@ -7,4 +7,6 @@ public abstract class PlayerController : MonoBehaviour
 {
     protected static bool isGround;
     protected static float yPosition;
+
+    public static bool IsGround=>isGround;
 }
