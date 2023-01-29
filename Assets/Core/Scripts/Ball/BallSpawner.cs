@@ -8,7 +8,7 @@ public class BallSpawner : MonoBehaviour
     [SerializeField] private Transform ballSpawnPoint;
    
     private float ballSpawnTime;
-    private const int ballSpawnDefaultTime=10;
+    private const int ballSpawnDefaultTime=5;
     
     private void Start()
     {

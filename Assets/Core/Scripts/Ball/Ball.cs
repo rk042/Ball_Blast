@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 public class Ball : MonoBehaviour
 {
     [SerializeField] private float jumpForce;
     [SerializeField] private float health;
-    private Rigidbody2D rd;
+    [SerializeField] private Ball smallBall;
+
+    public Rigidbody2D rd{get; private set;}
     private bool isLeftWall;
     
     private void Awake()
@@ -35,6 +37,16 @@ public class Ball : MonoBehaviour
 
             if (health<=0)
             {
+                //TODO generate small ball and destory big ball
+                if (smallBall)
+                {   
+                    Ball smallBallTemp1 = Instantiate(smallBall,transform.position,Quaternion.identity);
+                    Ball smallBallTemp2 = Instantiate(smallBall,transform.position,Quaternion.identity);
+                    smallBallTemp1.rd.AddForce(new Vector2(2,5),ForceMode2D.Impulse);
+                    smallBallTemp1.health=50;
+                    smallBallTemp2.rd.AddForce(new Vector2(-2,5),ForceMode2D.Impulse);
+                    smallBallTemp2.health=50;
+                }
                 Destroy(gameObject);
             }
         }
@@ -69,4 +81,12 @@ public class Ball : MonoBehaviour
             rd.AddForce(forceDirection * jumpForce, ForceMode2D.Impulse);
         }
     }
+
+    // private void OnCollisionStay2D(Collision2D other)
+    // {
+    //     if (other.transform.CompareTag(GameTags.Ground.ToString()))
+    //     {
+    //         rd.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    //     }
+    // }
 }

@@ -30,6 +30,9 @@ public class Bullet : MonoBehaviour
 
     public void Release()
     {
-        objectPool.Release(this);
+        if (gameObject.activeInHierarchy)
+        {   
+            objectPool.Release(this);
+        }
     }
 }

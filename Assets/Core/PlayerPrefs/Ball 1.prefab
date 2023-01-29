@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4179248415108787968}
   - component: {fileID: 4179248415108787969}
   - component: {fileID: 4179248415108787982}
-  m_Layer: 0
-  m_Name: Ball
-  m_TagString: Bullet
+  m_Layer: 6
+  m_Name: Ball 1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 10
   health: 100
+  smallBall: {fileID: 6420694061435604856, guid: 18fb19021104a374eb93914129bdc6e9, type: 3}
 --- !u!50 &4179248415108787969
 Rigidbody2D:
   serializedVersion: 4
