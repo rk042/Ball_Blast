@@ -6,8 +6,11 @@ using UnityEngine.Pool;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float shootSpeed;
+    [SerializeField] float hitDamage;
+    public float GetHitDamage=>hitDamage;
     private Rigidbody2D rd;
     public IObjectPool<Bullet> objectPool;
+
     private void Awake()
     {
         rd=GetComponent<Rigidbody2D>();
@@ -21,7 +24,12 @@ public class Bullet : MonoBehaviour
     {
         if (other.transform.CompareTag(GameTags.TopBulletHit.ToString()))
         {
-            objectPool.Release(this);
+            Release();
         }
+    }
+
+    public void Release()
+    {
+        objectPool.Release(this);
     }
 }

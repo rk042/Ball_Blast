@@ -8,6 +8,7 @@ TagManager:
   - TopBulletHit
   - WallLeft
   - WallRight
+  - Bullet
   layers:
   - Default
   - TransparentFX

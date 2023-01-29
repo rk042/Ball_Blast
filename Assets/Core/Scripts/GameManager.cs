@@ -17,5 +17,6 @@ public enum GameTags
     Ground,
     TopBulletHit,
     WallLeft,
-    WallRight
+    WallRight,
+    Bullet
 }

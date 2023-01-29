@@ -42,6 +42,7 @@ public class BulletPool : MonoBehaviour
         var bullet = Instantiate(bulletPrefab,transform.position,Quaternion.identity);  
         bullet.objectPool=bulletPool;
         bullet.transform.position=bulletShootStartPoint.position;
+        bullet.gameObject.tag=GameTags.Bullet.ToString();
         return bullet;
     }
     

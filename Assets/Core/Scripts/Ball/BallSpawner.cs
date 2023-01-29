@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Ball ball;
+    [SerializeField] private Transform ballSpawnPoint;
+   
+    private float ballSpawnTime;
+    private const int ballSpawnDefaultTime=10;
+    
+    private void Start()
     {
-        
+        SpawnBall();
+    }
+    private void SpawnBall()
+    {
+        Instantiate(ball,ballSpawnPoint.position,Quaternion.identity);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (ballSpawnTime>= ballSpawnDefaultTime)
+        {
+            SpawnBall();
+            ballSpawnTime=0;
+        }
+        else
+        {
+            ballSpawnTime+=Time.deltaTime;
+        }
     }
 }
