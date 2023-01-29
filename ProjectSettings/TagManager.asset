@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - TopBulletHit
+  - WallLeft
+  - WallRight
   layers:
   - Default
   - TransparentFX

@@ -15,5 +15,7 @@ public class GameManager : MonoBehaviour
 public enum GameTags
 {
     Ground,
-    TopBulletHit
+    TopBulletHit,
+    WallLeft,
+    WallRight
 }
