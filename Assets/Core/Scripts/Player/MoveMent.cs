@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class MoveMent : PlayerController
 {
+    [SerializeField] private float offsetRightLeft;
+    [SerializeField] private float moveSpeed;
+    
     void Update()
     {
         if (Input.GetMouseButton(0) && isGround)
@@ -12,11 +15,11 @@ public class MoveMent : PlayerController
             Vector3 lastPosition=transform.position;
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 viewPoint = Camera.main.WorldToViewportPoint(worldPoint);
-            if (viewPoint.x>0 && viewPoint.x<1)
+            if (viewPoint.x>0 + offsetRightLeft && viewPoint.x<1 - offsetRightLeft)
             {   worldPoint=new Vector3(worldPoint.x,yPosition,10);
                 lastPosition=worldPoint;
             }
-            transform.position=lastPosition;    
+            transform.position=Vector3.Lerp(transform.position,lastPosition,Time.deltaTime*moveSpeed);    
         }
     }
 }
